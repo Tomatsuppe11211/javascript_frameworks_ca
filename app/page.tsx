@@ -1,6 +1,5 @@
 import AllProducts from './components/Products';
 import { Suspense } from 'react';
-import Search from ''
 
 
 export default function Home() {
@@ -11,7 +10,6 @@ export default function Home() {
       <Suspense fallback = {<div className='text-lg'>Loading products...</div>}>
         <AllProducts/>
       </Suspense>
-      
     </main>
   );
 }
