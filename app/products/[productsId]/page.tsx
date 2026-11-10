@@ -1,4 +1,5 @@
-import CheckSale from "@/app/components/CheckSale"
+import CheckSingleSale from "@/app/components/CheckSingleSale"
+import CheckTags from "@/app/components/CheckTags"
 
 interface Review{
     id: string,
@@ -29,12 +30,6 @@ interface apiResponse {
 }
 
 
-function CheckSaveMoney({price, discount}: {price: number, discount: number}){
-    const save = price - discount
-
-    return <p className="text-lg">You will save {save} NOK on this product.</p>
-}
-
 export default async function ProductPage({
         params,
     }: {
@@ -53,11 +48,10 @@ export default async function ProductPage({
     const product = result.data
     console.log(product)
 
+    CheckTags(product.tags)
     
-
-
     return(
-        <div className="flex flex-col items-center gap-5">
+        <div className="flex flex-col items-center gap-5 mb-20">
             <img
                 src = {product.image.url}
                 alt = {product.image.alt}
@@ -67,10 +61,17 @@ export default async function ProductPage({
             <h1 className="text-2xl">{product.title}</h1>
 
             <div className="w-[90%]">
-                <CheckSale price={product.price} discount={product.discountedPrice} />
-                <CheckSaveMoney price={product.price} discount={product.discountedPrice} />
+                <CheckSingleSale price={product.price} discount={product.discountedPrice} />
             </div>
+
+            <p className="text-lg w-[90%]">{product.description}</p>
             
+            <button className="text-lg bg-green-400 p-2 cursor-pointer">Add to cart</button>
+
+            <div className="flex flex-col gap-5 w-[90%] mt-10">
+                <p className="text-lg">Rating: {product.rating}</p>
+                <h2 className="text-2xl">Reviews</h2>
+            </div>
         </div>
     )
 }
