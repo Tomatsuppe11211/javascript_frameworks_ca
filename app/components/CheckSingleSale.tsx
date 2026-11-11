@@ -10,7 +10,6 @@ export default function CheckSingleSale({price, discount}: {price: number, disco
             <p className=" text-gray-400 line-through">{price} NOK</p>
             <p className="text-lg">{discount} NOK</p>
             <p className="text-lg absolute h-20 w-20 flex text-center items-center top-60 left-2 border rounded-full bg-white p-2 text-red-400"><strong>{savedPercent}% OFF!</strong></p> 
-            <p>Sale ends: 16. December 2026</p>
             <br/>
             <p className=" text-red-400">Save {savedMoney} NOK</p>
            </>

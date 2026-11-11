@@ -46,9 +46,8 @@ export default async function ProductPage({
     const result:apiResponse  = await response.json()
 
     const product = result.data
-    console.log(product)
 
-    CheckTags(product.tags)
+    const productTags = result.data.tags
     
     return(
         <div className="flex flex-col items-center gap-5 mb-20">
@@ -58,7 +57,11 @@ export default async function ProductPage({
                 style = {{height: '20rem', width: '100vw'}}
             />
 
-            <h1 className="text-2xl">{product.title}</h1>
+            <div className='flex flex-col gap-1 w-[90%]'>
+                <h1 className="text-2xl">{product.title}</h1>
+                <CheckTags tags={productTags}/>
+            </div>
+            
 
             <div className="w-[90%]">
                 <CheckSingleSale price={product.price} discount={product.discountedPrice} />
