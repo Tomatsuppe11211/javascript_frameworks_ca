@@ -1,5 +1,6 @@
 import CheckSingleSale from "@/app/components/CheckSingleSale"
 import CheckTags from "@/app/components/CheckTags"
+import CheckReviews from "@/app/components/CheckReviews"
 
 interface Review{
     id: string,
@@ -22,7 +23,7 @@ interface Product{
     image: ProductImage,
     rating: number,
     tags: string[],
-    reviews: Review
+    reviews: Review[]
 }
 
 interface apiResponse {
@@ -46,8 +47,6 @@ export default async function ProductPage({
     const result:apiResponse  = await response.json()
 
     const product = result.data
-
-    const productTags = result.data.tags
     
     return(
         <div className="flex flex-col items-center gap-5 mb-20">
@@ -59,7 +58,8 @@ export default async function ProductPage({
 
             <div className='flex flex-col gap-1 w-[90%]'>
                 <h1 className="text-2xl">{product.title}</h1>
-                <CheckTags tags={productTags}/>
+                <CheckTags tags={product.tags}/>
+                <p className="text-sm">Rating: {product.rating}</p>
             </div>
             
 
@@ -71,10 +71,7 @@ export default async function ProductPage({
             
             <button className="text-lg bg-green-400 p-2 cursor-pointer w-[90%]">Add to cart</button>
 
-            <div className="flex flex-col gap-5 w-[90%] mt-10">
-                <p className="text-lg">Rating: {product.rating}</p>
-                <h2 className="text-2xl">Reviews</h2>
-            </div>
+            <CheckReviews reviews={product.reviews}/>
         </div>
     )
 }

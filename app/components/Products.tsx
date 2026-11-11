@@ -22,7 +22,7 @@ interface Product{
     image: ProductImage,
     rating: number,
     tags: string[],
-    reviews: Review
+    reviews: Review[]
 }
 
 interface apiResponse{
