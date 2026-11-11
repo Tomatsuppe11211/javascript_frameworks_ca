@@ -7,8 +7,6 @@ interface Review{
 }
 
 export default function CheckReviews({ reviews }: {reviews: Review[]}){
-   console.log(reviews)
-
     if(reviews.length > 0){
         return(
             <div className="flex flex-col gap-5 w-[90%] mt-10">
