@@ -69,7 +69,7 @@ export default async function ProductPage({
 
             <p className="text-lg w-[90%]">{product.description}</p>
             
-            <button className="text-lg bg-green-400 p-2 cursor-pointer">Add to cart</button>
+            <button className="text-lg bg-green-400 p-2 cursor-pointer w-[90%]">Add to cart</button>
 
             <div className="flex flex-col gap-5 w-[90%] mt-10">
                 <p className="text-lg">Rating: {product.rating}</p>
