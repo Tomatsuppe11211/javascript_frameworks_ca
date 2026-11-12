@@ -1,5 +1,6 @@
 import React from "react"
 import CheckSale from "./CheckSale"
+import Image from 'next/image'
 
 interface Review{
     id: string,
@@ -58,12 +59,14 @@ export default async function AllProducts(){
         <div className="flex justify-center">
             <ul className="w-[90%] flex flex-row flex-wrap justify-between">
                 {products.map((p) => (
-                    <li key = {p.id} className="mt-5 w-24 relative">
+                    <li key = {p.id} className="mt-5 w-fit relative">
                         <a href = {`products/${p.id}`}>
-                            <img
+                            <Image
+                                className="h-24 w-24 md:h-36 md:w-36 lg:h-48 lg:w-48"
                                 src = {p.image.url}
                                 alt = {p.image.alt}
-                                style = {{height: '6rem', width: '6rem'}}
+                                height = {200}
+                                width = {100}
                             />
                             
                             <p className="text-sm"><strong>{p.title}</strong></p>

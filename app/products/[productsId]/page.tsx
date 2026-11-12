@@ -1,6 +1,7 @@
 import CheckSingleSale from "@/app/components/CheckSingleSale"
 import CheckTags from "@/app/components/CheckTags"
 import CheckReviews from "@/app/components/CheckReviews"
+import Image from 'next/image'
 
 interface Review{
     id: string,
@@ -50,10 +51,13 @@ export default async function ProductPage({
     
     return(
         <div className="flex flex-col items-center gap-5 mb-20">
-            <img
+            <Image
+                className="h-80 w-screen"
                 src = {product.image.url}
                 alt = {product.image.alt}
-                style = {{height: '20rem', width: '100vw'}}
+                height = {400}
+                width = {500}
+                loading="eager" //making image loading immediately when rendering
             />
 
             <div className='flex flex-col gap-1 w-[90%]'>

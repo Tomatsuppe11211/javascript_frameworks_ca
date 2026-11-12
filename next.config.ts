@@ -15,6 +15,16 @@ const nextConfig: NextConfig = {
       },
     },
   },
+  images: {
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'static.noroff.dev',
+        port: '',
+        pathname: '/**'
+      }
+    ]
+  }
 };
 
 export default nextConfig;
