@@ -69,9 +69,9 @@ export default async function AllProducts(){
                                 width = {100}
                             />
                             
-                            <p className="text-sm"><strong>{p.title}</strong></p>
+                            <p className="text-sm md:text-base"><strong>{p.title}</strong></p>
                             <CheckSale price={p.price} discount={p.discountedPrice}/>
-                            <p className="text-xs"><strong>Rating: {p.rating}</strong></p>
+                            <p className="text-xs md:text-sm"><strong>Rating: {p.rating}</strong></p>
                         </a>
                     </li>
                 ))}

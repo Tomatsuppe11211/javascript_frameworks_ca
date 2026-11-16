@@ -29,7 +29,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
     >
 
       
-      <body className="min-h-full border flex flex-col gap-5">
+      <body className="min-h-screen flex flex-col gap-5 md:gap-10 justify-between items-center">
         <header>
           <Suspense fallback = { <div className="text-lg">Loading navigation...</div>}>
             <Navigation/>

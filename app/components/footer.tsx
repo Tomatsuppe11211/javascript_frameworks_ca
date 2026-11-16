@@ -1,32 +1,34 @@
 import Image from 'next/image'
+import Link from 'next/link'
 
 export default function Footer(){
 
     return(
-        <footer className="flex flex-col border-t p-2 gap-5 items-center">
-            <h2 className="text-center text-lg">Señor Javier's Online shop</h2>
-
-            <div className="flex flex-col w-screen md:flex-row gap-5 justify-evenly">
-                <div>
-                    <h3 className="text-lg">Contact us</h3>
-                    <p className='text-sm'>Email: Javier@onlineshop.com</p>
-                    <p className='text-sm'>Phone: +47 12 34 45 67</p>
-                    <a href = '#' className=" text-sm decoration-none cursor-pointer hover:underline hover:font-bold">Send message</a>
+        <footer className="flex flex-col border-t p-2 gap-5 items-center py-5 w-screen">
+            <div className="flex flex-col w-[90%] md:flex-row gap-5 justify-evenly md:justify-between items-center">
+                <div className='w-fit h-32 flex flex-col gap-2'>
+                    <h3 className="text-lg md:text-xl underline">Contact us</h3>
+                    <p className='text-sm md:text-base'>Email: Javier@onlineshop.com</p>
+                    <p className='text-sm md:text-base'>Phone: +47 12 34 45 67</p>
+                    <a href = '#' className="text-sm md:text-base decoration-none cursor-pointer hover:underline hover:font-bold">Send message</a>
                 </div>
 
-                <div>
-                    <h3 className="text-lg">Our locations</h3>
-                    <p className='text-sm'>Oslo, Norway</p>
-                    <p className='text-sm'>Mexico City, Mexico</p>
+                <div className='w-fit h-32 flex flex-col gap-2'>
+                    <h3 className="text-lg md:text-xl underline">Our locations</h3>
+                    <p className='text-sm md:text-base'>Oslo, Norway</p>
+                    <p className='text-sm md:text-base'>Mexico City, Mexico</p>
                 </div>
 
-                <Image
-                    className='h-18 w-18'
-                    src = '/images/logo.png'
-                    alt = 'logo'
-                    height = {100}
-                    width = {200}
-                />
+                <Link href = '/'>
+                    <Image
+                        className='h-18 w-18'
+                        src = '/images/logo.png'
+                        alt = 'logo'
+                        height = {100}
+                        width = {200}
+                    />
+                </Link>
+                
 
             </div>
         </footer>

@@ -9,8 +9,8 @@ interface Review{
 export default function CheckReviews({ reviews }: {reviews: Review[]}){
     if(reviews.length > 0){
         return(
-            <div className="flex flex-col gap-5 w-[90%] mt-10">
-                <h2 className="text-2xl">Reviews</h2>
+            <div className="flex flex-col gap-5 w-[90%] md:w-full mt-10">
+                <h2 className="text-2xl">Reviews: {reviews.length}</h2>
 
                 <ul>
                     {reviews.map((r) => (

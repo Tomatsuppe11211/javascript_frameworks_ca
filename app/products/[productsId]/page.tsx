@@ -50,9 +50,9 @@ export default async function ProductPage({
     const product = result.data
     
     return(
-        <div className="flex flex-col items-center gap-5 mb-20">
+        <div className=" relative flex flex-col items-center gap-5 mb-20 md:w-1/2 lg:w-1/4">
             <Image
-                className="h-80 w-screen"
+                className="h-80 lg:h-100 w-full"
                 src = {product.image.url}
                 alt = {product.image.alt}
                 height = {400}
@@ -60,20 +60,20 @@ export default async function ProductPage({
                 loading="eager" //making image loading immediately when rendering
             />
 
-            <div className='flex flex-col gap-1 w-[90%]'>
+            <div className='flex flex-col gap-1 w-[90%] md:w-full'>
                 <h1 className="text-2xl">{product.title}</h1>
                 <CheckTags tags={product.tags}/>
-                <p className="text-sm">Rating: {product.rating}</p>
+                <p className="text-sm md:text-base">Rating: {product.rating}</p>
             </div>
             
 
-            <div className="w-[90%]">
+            <div className="w-[90%] md:w-full">
                 <CheckSingleSale price={product.price} discount={product.discountedPrice} />
             </div>
 
-            <p className="text-lg w-[90%]">{product.description}</p>
+            <p className="text-lg w-[90%] md:w-full">{product.description}</p>
             
-            <button className="text-lg bg-green-400 p-2 cursor-pointer w-[90%]">Add to cart</button>
+            <button className="text-lg bg-green-400 p-2 cursor-pointer w-[90%] md:w-full">Add to cart</button>
 
             <CheckReviews reviews={product.reviews}/>
         </div>

@@ -6,7 +6,7 @@ export default function CheckTags({tags} : {tags: string[]}){
            {tags.map((t) => (
             <li
                 key = {t}
-                className="text-sm"
+                className="text-sm md:text-base"
             >
                 {t}
             </li>
