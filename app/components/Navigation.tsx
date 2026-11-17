@@ -4,7 +4,8 @@ import { usePathname } from "next/navigation"
 
 const navLinks = [
     {href: '/', label: 'Home'},
-    {href: '/about-us', label: 'About us'}
+    {href: '/about-us', label: 'About us'},
+    {href: '/contact-us', label: 'Contact us'}
 ]
 
 export default function Navigation(){
