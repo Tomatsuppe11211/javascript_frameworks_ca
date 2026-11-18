@@ -4,7 +4,7 @@ import Link from 'next/link'
 export default function Footer(){
 
     return(
-        <footer className="flex flex-col border-t p-2 gap-5 items-center py-5 w-screen">
+        <footer className="flex flex-col border-t px-2 gap-5 items-center py-5 w-full">
             <div className="flex flex-col w-[90%] md:flex-row gap-5 justify-evenly md:justify-between items-center">
                 <div className='w-[70%] h-32 flex flex-col gap-2'>
                     <h3 className="text-lg md:text-xl underline">Contact us</h3>
@@ -21,7 +21,7 @@ export default function Footer(){
 
                 <Link href = '/'>
                     <Image
-                        className='h-18 w-18'
+                        className='h-18 w-18 md:w-32 lg:w-28'
                         src = '/images/logo.png'
                         alt = 'logo'
                         height = {100}
