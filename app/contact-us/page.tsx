@@ -17,11 +17,11 @@ export default function ContactUs(){
 
 
                 <div className="flex flex-col w-full p-2 gap-2">
-                    <label htmlFor="message" className="md:text-lg lg:text-xl">Message: (max 200 characters)</label>
+                    <label htmlFor="message" className="md:text-lg lg:text-xl">Message: (max 500 characters)</label>
                     <textarea
                         placeholder="Enter your message..."
                         maxLength={500}
-                        className="min-h-40 p-2 border rounded-lg md:text-lg lg:text-xl"
+                        className="min-h-40 p-2 border rounded-lg md:text-lg lg:text-xl field-sizing-content"
                     ></textarea>
                 </div>
 
