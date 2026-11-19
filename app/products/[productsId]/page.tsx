@@ -50,7 +50,7 @@ export default async function ProductPage({
     const product = result.data
     
     return(
-        <div className=" relative flex flex-col items-center gap-5 mb-20 md:w-1/2 lg:w-1/4">
+        <div className=" relative flex flex-col items-center gap-5 mb-20 md:w-1/2 lg:w-2/5 xl:w-1/3">
             <Image
                 className="h-80 lg:h-100 w-full"
                 src = {product.image.url}
