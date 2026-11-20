@@ -1,6 +1,7 @@
 import CheckSingleSale from "@/app/components/CheckSingleSale"
 import CheckTags from "@/app/components/CheckTags"
 import CheckReviews from "@/app/components/CheckReviews"
+import AddToCartButton from "@/app/components/addToCartButton"
 import Image from 'next/image'
 
 interface Review{
@@ -73,7 +74,16 @@ export default async function ProductPage({
 
             <p className="text-lg w-[90%] md:w-full">{product.description}</p>
             
-            <button className="text-lg bg-green-400 p-2 cursor-pointer w-[90%] md:w-full">Add to cart</button>
+            <AddToCartButton 
+                id={product.id} 
+                title={product.title} 
+                price={product.price} 
+                discount={product.discountedPrice}
+                image={{
+                    url: product.image.url,
+                    alt: product.image.alt
+                }}
+            />
 
             <CheckReviews reviews={product.reviews}/>
         </div>
