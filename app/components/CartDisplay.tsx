@@ -85,8 +85,8 @@ export default function CartDisplay(){
                 <button 
                     className='
                         text-lg border border-black shadow-lg 
-                        shadow-green-500/50 mt-5 bg-green-500 
-                        font-bold cursor-pointer
+                        shadow-black dark:shadow-green-500/50 mt-5 bg-green-500 
+                        font-bold cursor-pointer text-white
                     '
                 >
                     Purchase

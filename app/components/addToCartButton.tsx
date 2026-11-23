@@ -37,9 +37,13 @@ export default function AddToCartButton(product: AddCartProduct){
     }
 
     return(
-        <div>
+        <div className="flex w-full">
             <button
-                className="text-lg bg-green-400 p-2 cursor-pointer w-[90%] md:w-full"
+                className="
+                    text-lg shadow-lg dark:shadow-green-500/50 
+                    shadow-black bg-green-500 p-2 cursor-pointer 
+                    w-full md:rounded-md lg:rounded-lg text-white
+                "
                 onClick={addToCart}
             >
                 Add to Cart

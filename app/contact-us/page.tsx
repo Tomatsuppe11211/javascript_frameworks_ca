@@ -62,7 +62,7 @@ export default function ContactUs(){
                         type='text'
                         id='fullName'
                         name='fullName'
-                        className='md:text-lg lg:text-xl border rounded-full p-1 px-3 w-full bg-gray-900 focus:border-purple-400 focus:outline-none'
+                        className='md:text-lg lg:text-xl border rounded-full p-1 px-3 w-full dark:bg-gray-900 focus:border-purple-400 focus:outline-none'
                         placeholder='Enter your name'
                         minLength={3}
                         required
@@ -75,7 +75,7 @@ export default function ContactUs(){
                         type='email'
                         id='email'
                         name='email'
-                        className='md:text-lg lg:text-xl border rounded-full p-1 px-3 w-full bg-gray-900 focus:border-purple-400 focus:outline-none'
+                        className='md:text-lg lg:text-xl border rounded-full p-1 px-3 w-full dark:bg-gray-900 focus:border-purple-400 focus:outline-none'
                         placeholder='Enter your email'
                         required
                     />
@@ -89,7 +89,7 @@ export default function ContactUs(){
                         name='subject'
                         minLength={3}
                         placeholder="Enter title/subject..."
-                        className="md:text-lg lg:text-xl border rounded-full p-1 px-3 w-full bg-gray-900 focus:border-purple-400 focus:outline-none"
+                        className="md:text-lg lg:text-xl border rounded-full p-1 px-3 w-full dark:bg-gray-900 focus:border-purple-400 focus:outline-none"
                         required
                     />
                 </div>
@@ -102,7 +102,7 @@ export default function ContactUs(){
                         placeholder="Enter your message..."
                         minLength={10}
                         maxLength={500}
-                        className="min-h-40 p-2 border rounded-lg md:text-lg lg:text-xl field-sizing-content bg-gray-900 focus:border-purple-400 focus:outline-none"
+                        className="min-h-40 p-2 border rounded-lg md:text-lg lg:text-xl field-sizing-content dark:bg-gray-900 focus:border-purple-400 focus:outline-none"
                         required
                     ></textarea>
                 </div>
