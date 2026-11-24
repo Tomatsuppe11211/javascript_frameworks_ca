@@ -1,8 +1,10 @@
 'use client'
 
+import { useState } from 'react'
 import useCartStore from '../stores/cartStore'
 import Image from 'next/image'
 import Link from 'next/link'
+import { redirect, RedirectType } from 'next/navigation'
 
 interface CartProduct{
     id: string,
@@ -16,20 +18,37 @@ interface CartProduct{
 }
 
 export default function CartDisplay(){
+    const [ confirmMessage, setConfirmMessage ] = useState('')
+    const [ removeMessage, setRemoveMessage ] = useState('')
+
     const items = useCartStore((state) => state.items)
     const removeItem = useCartStore((state) => state.removeItem)
     const updateQuantity = useCartStore((state) => state.updateQuantity)
+    const clearCart = useCartStore((state) => state.clearCart)
 
-    if(items.length === 0){
-        return <p>Your cart is empty</p>
+    if(items.length === 0 && !confirmMessage && !removeMessage){
+        return <p className='text-lg md:text-xl'>Your cart is empty</p>
     }
 
     const totalItems = items.reduce((total: number, item: CartProduct) => total + item.quantity, 0)
     const totalPrice = items.reduce((total: number, item: CartProduct) => total + item.price * item.quantity, 0)
 
+    function confirmPurchase(){
+        setConfirmMessage(`You have successfully purchased ${totalItems} items!`)
+        
+        clearCart()
+
+        setTimeout(() => { 
+            setConfirmMessage('')
+            
+            redirect('/confirmed-purchase', RedirectType.replace) 
+        }, 2000);
+    }
+
     return(
-        <div className='w-[90%] flex flex-col gap-5 md:w-1/2 lg:w-1/3'>
-            <h1 className='text-2xl text-center'>Your cart</h1>
+        <div className='w-[90%] flex flex-col gap-5 md:w-1/2 lg:w-1/3 xl:w-1/4'>
+            <h1 className='text-2xl text-center'>Checkout</h1>
+            <p>Total items: {totalItems}</p>
             <ul className='w-full flex flex-col gap-5 border-b'>
                 {items.map((item: CartProduct) => (
                     <li
@@ -39,28 +58,43 @@ export default function CartDisplay(){
                         <div className='flex flex-row w-full justify-between items-center'>
                             <div className='flex flex-col w-full gap-3'>
                                 <h2 className='text-lg'>{item.title}</h2>
-                                <p className='text-sm'>Price: {item.price} NOK</p>
-                                <p className='text-sm'>Quantity: {item.quantity}</p>
+                                <p className='text-sm md:text-base'>Price: {item.price} NOK</p>
+                                <p className='text-sm md:text-base'>Quantity: {item.quantity}</p>
 
                                 {/* Quantity buttons*/}
                                 <div className='flex flex-row w-4/5 gap-2 mb-2 mt-2'>
                                     <button
-                                        className='border p-1 w-full text-xs cursor-pointer hover:bg-red-500 hover:font-bold'
+                                        className='
+                                            border p-1 w-full text-xs md:text-sm cursor-pointer 
+                                            hover:bg-red-500 hover:font-bold hover:text-white
+                                        '
                                         onClick={() => updateQuantity(item.id, item.quantity - 1)}
                                     >
                                         -
                                     </button>
 
                                     <button
-                                        className='border p-1 w-full text-xs cursor-pointer hover:bg-green-500 hover:font-bold'
+                                        className='
+                                            border p-1 w-full text-xs md:text-sm cursor-pointer 
+                                            hover:bg-green-500 hover:font-bold hover:text-white
+                                        '
                                         onClick={() => updateQuantity(item.id, item.quantity + 1)}
                                     >
                                         +
                                     </button>
 
                                     <button
-                                        className='border p-1 w-full text-xs cursor-pointer hover:bg-red-500 hover:font-bold'
-                                        onClick={() => removeItem(item.id)}
+                                        className='
+                                            border p-1 w-full text-xs md:text-sm cursor-pointer 
+                                            hover:bg-red-500 hover:font-bold hover:text-white
+                                        '
+                                        onClick={() => {
+                                            removeItem(item.id)
+
+                                            setRemoveMessage(`You have removed ${item.title} from your cart`)
+
+                                            setTimeout(() => setRemoveMessage(''), 2000);
+                                        }}
                                     >
                                         Remove
                                     </button>
@@ -89,13 +123,33 @@ export default function CartDisplay(){
                     className='
                         text-lg border border-black shadow-lg 
                         shadow-black dark:shadow-green-500/50 mt-5 bg-green-500 
-                        font-bold cursor-pointer text-white
+                        font-bold cursor-pointer text-white w-full
                     '
+                    onClick={confirmPurchase}
                 >
                     Purchase
                 </button>
             </div>
-            
+
+            {confirmMessage && (
+                <div className='
+                    fixed flex flex-col gap-2 bottom-0 right-0 z-50 
+                    bg-green-500 p-4 w-full md:w-fit md:rounded-tl-lg
+                '>
+                    <h2 className="text-white text-lg lg:text-xl">Success!</h2>
+                    <p className="text-white lg:text-lg">{confirmMessage}</p>
+                </div>
+            )}
+
+            {removeMessage && (
+                <div className='
+                    fixed flex flex-col gap-2 bottom-0 right-0 z-50 text-white
+                    bg-red-500 p-4 w-full md:w-fit md:rounded-tl-lg
+                '>
+                    <h2 className="text-white text-lg lg:text-xl">Product Removed</h2>
+                    <p className="text-white lg:text-lg">{removeMessage}</p>
+                </div>
+            )}
         </div>
     )
 }

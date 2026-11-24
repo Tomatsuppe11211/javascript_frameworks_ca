@@ -37,12 +37,12 @@ export default function AddToCartButton(product: AddCartProduct){
     }
 
     return(
-        <div className="flex w-full">
+        <div className="flex w-full justify-center">
             <button
                 className="
                     text-lg shadow-lg dark:shadow-green-500/50 
                     shadow-black bg-green-500 p-2 cursor-pointer 
-                    w-full md:rounded-md lg:rounded-lg text-white
+                    w-9/10 md:w-full md:rounded-md lg:rounded-lg text-white
                     border border-black
                 "
                 onClick={addToCart}
@@ -52,7 +52,10 @@ export default function AddToCartButton(product: AddCartProduct){
 
 
             {addMessage && (
-                <div className="fixed flex flex-col gap-2 bottom-0 right-0 z-50 bg-green-500 p-4 w-fit">
+                <div className="
+                    fixed flex flex-col gap-2 bottom-0 right-0 z-50 
+                    bg-green-500 p-4 w-full md:w-fit md:rounded-tl-lg
+                ">
                     <h2 className="text-white text-lg">Success!</h2>
                     <p className="text-white">{addMessage}</p>
                 </div>

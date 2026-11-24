@@ -23,7 +23,7 @@ export default function Navigation(){
         <nav className="w-full p-5 md:p-0 flex flex-row justify-between items-center">
             <button 
                 className="
-                    p-2 border rounded-full fixed top-5 left-2 md:hidden
+                    p-1 border rounded-full fixed top-4 left-2 md:hidden
                     bg-green-500 text-white dark:bg-gray-800 z-10 
                     cursor-pointer
                 "
@@ -33,9 +33,9 @@ export default function Navigation(){
                     xmlns="http://www.w3.org/2000/svg" 
                     fill="none" 
                     viewBox="0 0 24 24" 
-                    strokeWidth="2" 
+                    strokeWidth="1.5" 
                     stroke="currentColor" 
-                    className="size-8"
+                    className="size-7"
                 >
                     <path 
                         strokeLinecap="round" 
@@ -99,6 +99,7 @@ export default function Navigation(){
                                    strokeWidth="1.5" 
                                    stroke="currentColor" 
                                    className="size-8 cursor-pointer"
+                                   onClick={() =>setIsOpen(false)}
                                 >   
                                    <path 
                                        strokeLinecap="round" 

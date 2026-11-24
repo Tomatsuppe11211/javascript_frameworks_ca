@@ -26,6 +26,7 @@ export default function Footer(){
                         alt = 'logo'
                         height = {100}
                         width = {200}
+                        loading='eager'
                     />
                 </Link>
                 

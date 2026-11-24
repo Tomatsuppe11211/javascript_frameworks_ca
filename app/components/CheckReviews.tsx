@@ -10,13 +10,13 @@ export default function CheckReviews({ reviews }: {reviews: Review[]}){
     if(reviews.length > 0){
         return(
             <div className="flex flex-col gap-5 w-[90%] md:w-full mt-10">
-                <h2 className="text-2xl">Reviews: {reviews.length}</h2>
+                <h2 className="text-xl md:text-2xl">Reviews: {reviews.length}</h2>
 
                 <ul>
                     {reviews.map((r) => (
                         <li
                             key = {r.id}
-                            className="border-t py-5"
+                            className="border-t py-5 md:text-lg"
                         >
                             <strong>{r.username}</strong> : {r.rating}
                             <br/>

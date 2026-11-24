@@ -104,7 +104,8 @@ export default function SearchAllProducts(){
                     className='
                         p-1 text-sm md:text-base lg:text-lg border 
                         rounded-md w-1/2 lg:w-1/3 inset-shadow-sm inset-shadow-black
-                        dark:inset-shadow-none
+                        dark:inset-shadow-none dark:bg-gray-800 dark:border-black
+                        dark:focus:border-purple-500 dark:outline-none
                     '
                 />
 
@@ -112,7 +113,12 @@ export default function SearchAllProducts(){
                     onClick={() => {
                         setSearchProduct('')
                     }}
-                    className='p-1 text-sm md:text-base lg:text-lg border rounded-md shadow-md shadow-black'
+                    className='
+                        p-1 text-sm md:text-base lg:text-lg border rounded-md shadow-md 
+                        shadow-black dark:hover:bg-purple-500 cursor-pointer
+                        dark:shadow-purple-500/50 dark:border-black dark:bg-gray-800
+                        md:px-2 lg:px-3
+                    '
                 >
                     Reset
                 </button>
