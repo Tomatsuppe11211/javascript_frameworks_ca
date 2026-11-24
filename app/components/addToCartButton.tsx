@@ -43,6 +43,7 @@ export default function AddToCartButton(product: AddCartProduct){
                     text-lg shadow-lg dark:shadow-green-500/50 
                     shadow-black bg-green-500 p-2 cursor-pointer 
                     w-full md:rounded-md lg:rounded-lg text-white
+                    border border-black
                 "
                 onClick={addToCart}
             >

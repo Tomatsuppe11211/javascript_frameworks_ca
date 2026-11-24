@@ -51,7 +51,11 @@ export default function ContactUs(){
     return(
         <>
             <form 
-                className="flex flex-col border w-[90%] md:w-[50%] gap-5 py-5 px-2 items-center dark:bg-gray-800"
+                className="
+                    flex flex-col border border-black w-[90%] md:w-[50%] 
+                    gap-5 py-5 px-2 mb-10 items-center dark:bg-gray-800 
+                    shadow-lg shadow-black rounded-xl dark:shadow-gray-800/50
+                "
                 onSubmit={handleSubmit}
             >
                 <h1 className="text-2xl lg:text-3xl text-center underline">Contact us</h1>
@@ -62,7 +66,12 @@ export default function ContactUs(){
                         type='text'
                         id='fullName'
                         name='fullName'
-                        className='md:text-lg lg:text-xl border rounded-full p-1 px-3 w-full dark:bg-gray-900 focus:border-purple-400 focus:outline-none'
+                        className='
+                            md:text-lg lg:text-xl border rounded-full p-1 px-3 
+                            w-full dark:bg-gray-900 focus:border-purple-400 
+                            focus:outline-none inset-shadow-sm inset-shadow-black
+                            dark:inset-shadow-none
+                        '
                         placeholder='Enter your name'
                         minLength={3}
                         required
@@ -75,7 +84,12 @@ export default function ContactUs(){
                         type='email'
                         id='email'
                         name='email'
-                        className='md:text-lg lg:text-xl border rounded-full p-1 px-3 w-full dark:bg-gray-900 focus:border-purple-400 focus:outline-none'
+                        className='
+                            md:text-lg lg:text-xl border rounded-full p-1 px-3 
+                            w-full dark:bg-gray-900 focus:border-purple-400 
+                            focus:outline-none inset-shadow-sm inset-shadow-black
+                            dark:inset-shadow-none
+                        '
                         placeholder='Enter your email'
                         required
                     />
@@ -89,7 +103,12 @@ export default function ContactUs(){
                         name='subject'
                         minLength={3}
                         placeholder="Enter title/subject..."
-                        className="md:text-lg lg:text-xl border rounded-full p-1 px-3 w-full dark:bg-gray-900 focus:border-purple-400 focus:outline-none"
+                        className="
+                            md:text-lg lg:text-xl border rounded-full p-1 px-3 
+                            w-full dark:bg-gray-900 focus:border-purple-400 
+                            focus:outline-none inset-shadow-sm inset-shadow-black
+                            dark:inset-shadow-none
+                        "
                         required
                     />
                 </div>
@@ -102,14 +121,21 @@ export default function ContactUs(){
                         placeholder="Enter your message..."
                         minLength={10}
                         maxLength={500}
-                        className="min-h-40 p-2 border rounded-lg md:text-lg lg:text-xl field-sizing-content dark:bg-gray-900 focus:border-purple-400 focus:outline-none"
+                        className="
+                            min-h-40 p-2 border rounded-lg md:text-lg lg:text-xl 
+                            field-sizing-content dark:bg-gray-900 
+                            focus:border-purple-400 focus:outline-none
+                            inset-shadow-sm inset-shadow-black
+                            dark:inset-shadow-none
+                        "
                         required
                     ></textarea>
                 </div>
 
                 <button className="
-                    text-lg lg:text-xl border border-black bg-green-500 rounded-lg 
-                    w-fit px-2 cursor-pointer shadow-lg shadow-green-500/50
+                    text-lg lg:text-xl border border-black bg-green-500 
+                    rounded-lg w-fit px-2 cursor-pointer  shadow-md text-white
+                    dark:shadow-lg shadow-black dark:shadow-green-500/50
                 ">
                     Send message
                 </button>

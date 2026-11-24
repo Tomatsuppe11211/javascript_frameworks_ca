@@ -101,7 +101,11 @@ export default function SearchAllProducts(){
                     placeholder='Search...'
                     value = {searchProduct}
                     onChange={(e) => setSearchProduct(e.target.value)}
-                    className='p-1 text-sm md:text-base lg:text-lg border rounded-md w-1/2 lg:w-1/3'
+                    className='
+                        p-1 text-sm md:text-base lg:text-lg border 
+                        rounded-md w-1/2 lg:w-1/3 inset-shadow-sm inset-shadow-black
+                        dark:inset-shadow-none
+                    '
                 />
 
                 <button

@@ -2,6 +2,7 @@
 
 import useCartStore from '../stores/cartStore'
 import Image from 'next/image'
+import Link from 'next/link'
 
 interface CartProduct{
     id: string,
@@ -66,14 +67,16 @@ export default function CartDisplay(){
                                 </div>
                             </div>
 
-                            <Image
-                                className='w-35 h-25'
-                                src={item.image.url}
-                                alt={item.image.alt}
-                                height={10}
-                                width={80}
-                                loading='eager'
-                            />
+                            <Link href={`/products/${item.id}`}>
+                                <Image
+                                    className='w-35 h-25'
+                                    src={item.image.url}
+                                    alt={item.image.alt}
+                                    height={10}
+                                    width={80}
+                                    loading='eager'
+                                />
+                            </Link>
                         </div>
                     </li>
                 ))}    
