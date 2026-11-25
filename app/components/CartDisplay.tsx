@@ -134,20 +134,23 @@ export default function CartDisplay(){
             {confirmMessage && (
                 <div className='
                     fixed flex flex-col gap-2 bottom-0 right-0 z-50 
-                    bg-green-500 p-4 w-full md:w-fit md:rounded-tl-lg
+                    bg-green-500 p-4 w-full md:w-1/2 lg:w-1/3 
+                    xl:w-1/4 md:rounded-tl-lg border border-black 
+                    text-white
                 '>
-                    <h2 className="text-white text-lg lg:text-xl">Success!</h2>
-                    <p className="text-white lg:text-lg">{confirmMessage}</p>
+                    <h2 className="text-lg lg:text-xl xl:text-2xl">Success!</h2>
+                    <p className="text-sm md:text-base xl:text-lg">{confirmMessage}</p>
                 </div>
             )}
 
             {removeMessage && (
                 <div className='
                     fixed flex flex-col gap-2 bottom-0 right-0 z-50 text-white
-                    bg-red-500 p-4 w-full md:w-fit md:rounded-tl-lg
+                    bg-red-500 p-4 w-full md:w-1/2 lg:w-1/3 xl:w-1/4 
+                    md:rounded-tl-lg border border-black
                 '>
-                    <h2 className="text-white text-lg lg:text-xl">Product Removed</h2>
-                    <p className="text-white lg:text-lg">{removeMessage}</p>
+                    <h2 className="text-lg lg:text-xl xl:text-2xl">Product Removed</h2>
+                    <p className="text-sm md:text-base xl:text-lg">{removeMessage}</p>
                 </div>
             )}
         </div>

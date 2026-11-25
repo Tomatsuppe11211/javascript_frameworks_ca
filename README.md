@@ -27,6 +27,10 @@ an online shop using next.js.
 
 - Open menu with the burger-menu icon on top left when using a mobile device.
 
+- Confirm "purchase" by clicking purchase-button on the checkout page.
+
+- When confirming checkout, the user will be taken to the landing page.
+
 
 
 ## Technologies used
