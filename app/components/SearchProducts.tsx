@@ -34,7 +34,7 @@ const API_URL = 'https://v2.api.noroff.dev/online-shop'
 export default function SearchAllProducts(){
     const [ allProducts, setAllProducts ] = useState([])
     const [ isLoading, setIsLoading ] = useState(true)
-    const [ error, setError ] = useState(null)
+    const [ error, setError ] = useState<string | null>(null)
     const [ searchProduct, setSearchProduct ] = useState('')
 
     useEffect(() => {
@@ -61,7 +61,11 @@ export default function SearchAllProducts(){
 
                 setAllProducts(products || [])
             } catch(error){
-                setError(error.message)
+                if(error instanceof Error){
+                    setError(error.message)
+                } else {
+                    setError('An unknown error occured')
+                }
             } finally{
                 setIsLoading(false)
             }
